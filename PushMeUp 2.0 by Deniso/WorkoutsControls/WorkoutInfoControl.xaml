@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="PushMeUp_2._0_by_Deniso.WorkoutInfoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PushMeUp_2._0_by_Deniso"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Name="_WorkoutInfoControl" Background="White" Loaded="_WorkoutInfoControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Back Button-->
+        <Grid Height="50" Margin="25, 10" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button Name="backBtn" Grid.Column="0" Height="Auto" BorderThickness="0" Background="Teal" Foreground="White"
+                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Click="backBtn_Click" Margin="0,8">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <Path Width="26" Height="18" Canvas.Left="17.75" Canvas.Top="24" Stretch="Fill" Fill="WhiteSmoke" Data="F1 M 57,42L 57,34L 32.25,34L 42.25,24L 31.75,24L 17.75,38L 31.75,52L 42.25,52L 32.25,42L 57,42 Z"/>
+                </Button.Content>
+            </Button>
+
+            <Button Name="helpBtn" Grid.Column="2" Height="Auto" BorderThickness="0" Background="DodgerBlue" Foreground="White"
+                            VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="helpBtn_Click" Margin="0, 8">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <iconPacks:PackIconMaterial Kind="TooltipText" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button.Content>
+            </Button>
+            
+            <Button Name="deleteBtn" Grid.Column="4" Height="Auto" BorderThickness="0" Background="Red" Foreground="White"
+                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Click="deleteBtn_Click" Margin="0,8">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <iconPacks:PackIconMaterial Kind="Delete" Foreground="White"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.30*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.50*"/>
+                <ColumnDefinition Width="0.50*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Orientation="Horizontal" Margin="20,10" Grid.ColumnSpan="2" Grid.Row="0">
+                <TextBox Name="workoutNameTb" 
+                         Text="Workout Name" 
+                         HorizontalAlignment="Left" VerticalAlignment="Center" 
+                         FontWeight="SemiBold" 
+                         FontSize="25"
+                         KeyDown="workoutNameTb_KeyDown"
+                         IsReadOnly="True"
+                         BorderThickness="0"
+                         />
+                <Button Name="editWorkoutNameBtn" 
+                        Height="25" Width="30"
+                        BorderThickness="0" 
+                        Background="Teal"
+                        Margin="12,8" Padding="0"
+                        Click="editWorkoutNameBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Content>
+                        <iconPacks:PackIconMaterial Kind="RenameBox" 
+                                                    Foreground="White"
+                                                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                                    
+                                                    />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            
+            <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" VerticalScrollBarVisibility="Visible" Style="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Name="itemsSp" Grid.Row="1" Width="350" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Margin="20, 0, 0, 0"
+                                PreviewMouseLeftButtonDown="sp_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="sp_PreviewMouseLeftButtonUp"
+                                PreviewMouseMove="sp_PreviewMouseMove" DragEnter="sp_DragEnter" Drop="sp_Drop" AllowDrop="True"/>
+                </Grid>
+            </ScrollViewer>
+            
+            <!-- Buttons on the right -->
+            <StackPanel Grid.RowSpan="2" Grid.Column="2">
+                <TextBlock Text="Start Workout!" Foreground="Green" FontWeight="SemiBold" FontSize="16" HorizontalAlignment="Center"/>
+                <Button Name="startBtn" Grid.Row="0" Grid.Column="2" Height="50" Width="110" BorderThickness="0" Background="Green" Foreground="White"
+                            Click="startBtn_Click" Margin="0,8">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Content>
+                        <iconPacks:PackIconMaterial Kind="ArrowRightBold" Foreground="White"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" Height="36" Width="36"/>
+                    </Button.Content>
+                </Button>
+                
+                <Button Name="addBreakBtn" Grid.Row="0" Grid.Column="2" Height="50" Width="110" BorderThickness="0" Background="DodgerBlue" Foreground="White"
+                            Click="addBreakBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Content>
+                        <TextBlock Text="Add Break"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <!-- Explanation on how to add an exercise -->
+            <Border Name="explanationBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"
+                    Height="Auto"
+                    BorderBrush="Teal" BorderThickness="1"    
+                    Margin="0,15,10,0"> 
+                <TextBlock x:Name="explanationTb" 
+                           Text="Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet."
+                           TextWrapping="Wrap" 
+                           FontWeight="SemiBold"
+                           Opacity="1" 
+                           Margin="5"/>
+            </Border>
+        </Grid>
+        
+        
+        <!-- POP-UP INPUT BOX TO ADD BREAK -->
+        <Grid x:Name="InputBox" Visibility="Collapsed" Grid.RowSpan="2">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+            MinWidth="250"
+            Background="WhiteSmoke" 
+            BorderBrush="Black" 
+            BorderThickness="1" 
+            CornerRadius="5,5,5,5" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Margin="5" Text="Duration (secs):" FontWeight="SemiBold" />
+                    <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="InputTextBox"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="YesButton" Margin="5" Content="Add" Background="{x:Null}" Click="YesButton_Click"/>
+                        <Button x:Name="NoButton" Margin="5" Content="Cancel" Background="{x:Null}" Click="NoButton_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        
+        <!-- TOOLTIP -->
+        <Grid x:Name="toolTipBox" Visibility="Collapsed" Grid.RowSpan="2">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+            MinWidth="250"
+            Background="WhiteSmoke" 
+            BorderBrush="DodgerBlue" 
+            BorderThickness="1" 
+            CornerRadius="5,5,5,5" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Name="toolTipTb" Margin="5" FontWeight="SemiBold" Width="300" TextWrapping="Wrap"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="okBtn" Margin="5" Content="Ok" Background="{x:Null}" BorderBrush="DodgerBlue" Click="okBtn_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

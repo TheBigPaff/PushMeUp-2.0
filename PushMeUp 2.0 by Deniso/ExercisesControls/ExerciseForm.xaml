@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="PushMeUp_2._0_by_Deniso.ExerciseForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PushMeUp_2._0_by_Deniso"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Name="_ExerciseForm"
+             Loaded="_ExerciseForm_Loaded">
+    
+    <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" >
+            <TextBox x:Name="tbName"
+                     Text="{Binding ExerciseName, ElementName=_ExerciseForm}"
+                     FontWeight="Light"
+                     FontSize="28"
+                     HorizontalAlignment="Center"
+                     Foreground="Teal"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="250"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.75"
+                     materialDesign:HintAssist.Hint="Name"/>
+            <iconPacks:PackIconMaterial Kind="Dumbbell" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+        </StackPanel>
+        <Border Background="Teal" Style="{StaticResource FormBorderUsername}"  
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1"/>
+
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBox Name="tbDescription"
+                     Text="{Binding ExerciseDescription, ElementName=_ExerciseForm}"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     SpellCheck.IsEnabled="True"
+                     FontWeight="Light"
+                     FontSize="24"
+                     HorizontalAlignment="Center"
+                     Foreground="Teal"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="250"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.75"
+                     materialDesign:HintAssist.Hint="Description"/>
+            <iconPacks:PackIconMaterial Kind="Text" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+        </StackPanel>
+        <Border Background="Teal" Style="{StaticResource FormBorderPassword}"
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+            <local:ComboCheckBox x:Name="muscleGroupsCb"/>
+            <iconPacks:PackIconMaterial Kind="Group" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+        </StackPanel>
+        <Border Background="Teal" Style="{StaticResource FormBorderUsername}"  
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1" Margin="0, 15, 0, 0"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+            <local:ComboCheckBox x:Name="exerciseTypeCb"/>
+            <iconPacks:PackIconMaterial Kind="JumpRope" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+        </StackPanel>
+        <Border Background="Teal" Style="{StaticResource FormBorderUsername}"  
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1" Margin="0, 15, 0, 0"/>
+
+        <Button Style="{StaticResource ModernButton}" FontSize="18" Foreground="Teal" Background="WhiteSmoke" Name="btnChooseImage" Width="120" Height="35" Content="Choose Image"  Margin="0,20,0,0" Click="btnOpenImageDialog_Click"/>
+
+
+
+    </StackPanel>
+</UserControl>

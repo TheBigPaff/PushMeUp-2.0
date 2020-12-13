@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="PushMeUp_2._0_by_Deniso.ExerciseInfoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PushMeUp_2._0_by_Deniso"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Name="_ExerciseInfoControl" Background="White" Loaded="_ExerciseInfoControl_Loaded"
+             KeyDown="_ExerciseInfoControl_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Buttons-->
+        <Grid Height="50" Margin="25, 20, 25, 10" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+            
+            <Button Name="backBtn" Grid.Column="0" Height="Auto" BorderThickness="0" Background="Teal" Foreground="White"
+                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Click="backBtn_Click" Margin="0,8">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <Path Width="26" Height="18" Canvas.Left="17.75" Canvas.Top="24" Stretch="Fill" Fill="WhiteSmoke" Data="F1 M 57,42L 57,34L 32.25,34L 42.25,24L 31.75,24L 17.75,38L 31.75,52L 42.25,52L 32.25,42L 57,42 Z"/>
+                </Button.Content>
+            </Button>
+            
+            <!-- Edit exercise button-->
+            <Button Name="editExerciseBtn" Grid.Column="2" Height="40" Width="110"
+                        HorizontalAlignment="Center"
+                        BorderThickness="0" 
+                        Background="DodgerBlue" 
+                        Foreground="White"
+                        Click="editExerciseBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock Text="Edit exercise"/>
+                </Button.Content>
+            </Button>
+            
+            <!-- Add to a workout button -->
+            <Button Name="addToWorkout" Grid.Column="3" Height="40" Width="150" 
+                        BorderThickness="0" 
+                        Background="Green" 
+                        Foreground="White"
+                        Click="addToWorkout_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock Text="Add to a workout"/>
+                </Button.Content>
+            </Button>
+
+            <Button Name="deleteBtn" Grid.Column="5" Height="Auto" BorderThickness="0" Background="Red" Foreground="White"
+                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Click="deleteBtn_Click" Margin="0,8">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <iconPacks:PackIconMaterial Kind="Delete" Foreground="White"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Name="exerciseImg" Grid.Column="1" Grid.Row="0" Margin="20" MaxHeight="600" MaxWidth="600" Stretch="Uniform" MouseDown="exerciseImg_MouseDown"/>
+                
+                <!-- Exercise Muscle Groups and Exercise Type -->
+                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0,0,10,10">
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Name="typesHeaderTb" Text="This exercise can be performed in the following ways / with the following items: " 
+                                   TextWrapping="Wrap"/>
+                        <TextBlock Name="typesTb" 
+                                   FontStyle="Italic"
+                                   FontWeight="SemiBold"
+                                   TextWrapping="Wrap" 
+                                   Text="Lorem ipsum dolor sit amet"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock Name="musclesHeaderTb" Text="This exercise targets the following muscles: " TextWrapping="Wrap"/>
+                        <TextBlock Name="musclesTb"
+                                   FontStyle="Italic"
+                                   FontWeight="SemiBold"
+                                   TextWrapping="Wrap" 
+                                   Text="Lorem ipsum dolor sit amet"/>
+                    </WrapPanel>
+                </StackPanel>
+
+                
+                <!-- Exercise Description -->
+                <StackPanel Orientation="Vertical" Margin="20,10" Grid.Column="0" Grid.RowSpan="2">
+                    <TextBlock Name="nameTb" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="SemiBold" FontSize="25">
+                                        <!--<Run Text="{Binding ExerciseName, ElementName=_ExerciseInfoControl, FallbackValue='Exercise Name', TargetNullValue='Exercise Name'}"/>-->
+                    </TextBlock>
+                    <TextBlock Name="descTb" Margin="0,25" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap">
+                                        <!--<Run Text="{Binding ExerciseDescription, ElementName=_ExerciseInfoControl, FallbackValue='Exercise Description', TargetNullValue='Exercise Description'}"/>-->
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+
+        <!-- "full screen" IMAGE POP-UP -->
+        <local:ImagePopUp x:Name="exerciseImagePopUp" Grid.RowSpan="2"/>
+    </Grid>
+</UserControl>

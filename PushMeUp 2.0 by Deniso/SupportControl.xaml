@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="PushMeUp_2._0_by_Deniso.SupportControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PushMeUp_2._0_by_Deniso"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.75*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".65*"/>
+            <ColumnDefinition Width=".35*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Name="nameTb" Grid.Column="0" Text="Contact Me" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                        Foreground="Teal" TextWrapping="Wrap" FontWeight="Bold" FontSize="28" Margin="20, 0, 0 ,0"/>
+
+        <Image Grid.Column="1" Grid.RowSpan="2" Stretch="Uniform" Width="Auto" Height="Auto" Source="/Assets/logo_tagline.png"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,20,0,0">
+            
+            <TextBlock Text="This app was made by Patrick Deniso as a school project."
+                   TextWrapping="Wrap" FontSize="18"/>
+            <TextBlock Text="Tech Stack: C#, WPF, SQLite. Google Charts service was used for the statistics tab and Google Drive API for backup."
+                   TextWrapping="Wrap" Margin="0,10,0,0" FontSize="18"/>
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="0,25,0,0">
+                <iconPacks:PackIconMaterial Kind="Email" Foreground="Teal" Margin="0,0,5,0"/>
+                <TextBlock Text="Have any enquiries? Want to send feedback? This is my email: "
+                           FontSize="13"/>
+
+                <TextBlock FontSize="13">
+                <Hyperlink NavigateUri="mailto:patrickdeniso@gmail.com?subject=PushMeUp Support Inquiry" 
+                            RequestNavigate="Hyperlink_RequestNavigate">
+                        patrickdeniso@gmail.com
+                </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

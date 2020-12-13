@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="PushMeUp_2._0_by_Deniso.CreateNewWorkoutControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PushMeUp_2._0_by_Deniso"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" FontFamily="Helvetica">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Back Button-->
+        <Grid Height="50" Margin="25, 10" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.08*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="backBtn" Grid.Column="0" Height="35" BorderThickness="0" Background="Teal" Foreground="White"
+                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Click="backBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <Path Width="26" Height="18" Canvas.Left="17.75" Canvas.Top="24" Stretch="Fill" Fill="WhiteSmoke" Data="F1 M 57,42L 57,34L 32.25,34L 42.25,24L 31.75,24L 17.75,38L 31.75,52L 42.25,52L 32.25,42L 57,42 Z"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" >
+                <TextBox x:Name="tbName"
+                            FontWeight="Light"
+                            FontSize="28"
+                            HorizontalAlignment="Center"
+                            Foreground="Teal"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="250"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.75"
+                            materialDesign:HintAssist.Hint="Name"
+                            />
+
+                <iconPacks:PackIconMaterial Kind="Dumbbell" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+            </StackPanel>
+            <Border Background="Teal" Style="{StaticResource FormBorderUsername}"  
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1"/>
+
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBox Name="tbDescription"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        AcceptsTab="True"
+                        SpellCheck.IsEnabled="True"
+                        FontWeight="Light"
+                        FontSize="24"
+                        HorizontalAlignment="Center"
+                        Foreground="Teal"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="250"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.75"
+                        materialDesign:HintAssist.Hint="Description"
+                        />
+                <iconPacks:PackIconMaterial Kind="Text" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        Foreground="Teal"/>
+            </StackPanel>
+            <Border Background="Teal" Style="{StaticResource FormBorderPassword}"
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Height="1"/>-->
+
+            <Button Style="{StaticResource ModernButton}" FontSize="18" Foreground="Teal" 
+                    Background="WhiteSmoke" Name="btnAdd" Width="120" Height="35" Content="Add Workout" Margin="0,30,0,0" Click="btnAdd_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
