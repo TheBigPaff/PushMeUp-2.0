@@ -89,7 +89,7 @@
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -100,7 +100,7 @@
                 <Image Name="exerciseImg" Grid.Column="1" Grid.Row="0" Margin="20" MaxHeight="600" MaxWidth="600" Stretch="Uniform" MouseDown="exerciseImg_MouseDown"/>
                 
                 <!-- Exercise Muscle Groups and Exercise Type -->
-                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0,0,10,10">
+                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top" Margin="0,0,10,10">
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,10,0">
                         <TextBlock Name="typesHeaderTb" Text="This exercise can be performed in the following ways / with the following items: " 
                                    TextWrapping="Wrap"/>
